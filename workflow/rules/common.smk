@@ -21,7 +21,7 @@ def get_output_list_for_one_sample(sample):
 
 def get_final_output():
     final_output = []
-    for sample in samples.index:
+    for sample in samples.keys():
         final_output += get_output_list_for_one_sample(sample)
     return final_output
 
