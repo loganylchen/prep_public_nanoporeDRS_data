@@ -7,7 +7,7 @@ def extract_tar_files(directory,compressed_files=[]):
     for filename in os.listdir(directory):
         file_path = os.path.join(directory, filename)
         if os.path.isfile(file_path):
-            if filename.endswith(".tar") or filename.endswith(".tar.gz"):
+            if file_path.endswith(".tar") or file_path.endswith(".tar.gz"):
                 compressed_files.append(file_path)
             else:
                 print(f"Skipping {filename}")
