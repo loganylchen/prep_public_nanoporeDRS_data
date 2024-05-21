@@ -19,9 +19,11 @@ compressed_files = []
 compressed_files = extract_tar_files(snakemake.input[0],compressed_files)
 
 for f in compressed_files:
+    f_dir = os.path.dirname(f)
     if f.endswith('.tar.gz'):
-        shell("tar -zxvf {f} -c dirname({f}) ")
+
+        shell("tar -zxvf "+f+" -c  " + f_dir)
     else:
-        shell("tar -xvf {f} -c dirname({f}) ")
+        shell(f"tar -xvf "+f+" -c "+f_dir)
 
 shell("touch {snakemake.output[0]}")
