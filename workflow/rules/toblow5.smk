@@ -4,7 +4,7 @@ rule slow5tools_f2s:
         tag = "data/tmp.{sample}.nanoporeDRS.tag",
         check_tag="data/tmp.{sample}.nanoporeDRS.check.tag"
     output:
-        raw_slow5_dir = temp("data/tmp.{sample}.slow5"),
+        raw_slow5_dir = temp(directory("data/tmp.{sample}.slow5")),
         tag=temp("data/tmp.{sample}.slow5.tag"),
     threads: config["threads"]["slow5tools"]
     conda:

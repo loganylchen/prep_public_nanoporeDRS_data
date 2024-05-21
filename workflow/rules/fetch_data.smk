@@ -19,7 +19,7 @@ rule extract_data:
         compressed_data = "data/tmp.{sample}.nanoporeDRS.tar.gz",
         tag= "data/tmp.{sample}.nanoporeDRS.tar.gz.tag"
     output:
-        extracted_data = temp("data/tmp.{sample}.nanoporeDRS"),
+        extracted_data = temp(directory("data/tmp.{sample}.nanoporeDRS")),
         tag = temp("data/tmp.{sample}.nanoporeDRS.tag")
     log:
         "logs/extract_data/{sample}.log"
