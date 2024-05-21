@@ -22,8 +22,8 @@ for f in compressed_files:
     f_dir = os.path.dirname(f)
     if f.endswith('.tar.gz'):
 
-        shell("tar -zxvf "+f+" -c  " + f_dir)
+        shell("tar -zxvf "+f+" -C  " + f_dir)
     else:
-        shell(f"tar -xvf "+f+" -c "+f_dir)
+        shell(f"tar -xvf "+f+" -C   "+f_dir)
 
 shell("touch {snakemake.output[0]}")
