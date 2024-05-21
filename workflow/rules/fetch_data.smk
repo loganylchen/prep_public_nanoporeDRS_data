@@ -26,6 +26,7 @@ rule extract_data:
     benchmark:
         "benchmarks/extract_data/{sample}.txt"
     shell:
+        "mkdir -p {output.extracted_data} && "
         "tar -xzf {input.compressed_data} -C {output.extracted_data} 2>{log} && touch {output.tag}"
 
 
