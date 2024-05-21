@@ -12,7 +12,7 @@ def extract_tar_files(directory,compressed_files=[]):
             else:
                 print(f"Skipping {filename}")
         elif os.path.isdir(file_path):
-            compressed_files = (file_path,compressed_files)
+            compressed_files = extract_tar_files(file_path,compressed_files)
     return compressed_files
 
 compressed_files = []
