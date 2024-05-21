@@ -29,4 +29,17 @@ rule extract_data:
         "mkdir -p {output.extracted_data} && "
         "tar -xzf {input.compressed_data} -C {output.extracted_data} 2>{log} && touch {output.tag}"
 
+rule check_data:
+    input:
+        extracted_data = "data/tmp.{sample}.nanoporeDRS",
+        tag = "data/tmp.{sample}.nanoporeDRS.tag"
+    output:
+        tag= temp("data/tmp.{sample}.nanoporeDRS.check.tag")
+    log:
+        "logs/check_data/{sample}.log"
+    benchmark:
+        "benchmarks/check_data/{sample}.txt"
+    script:
+        "../scripts/check_data.py"
+
 

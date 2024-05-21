@@ -2,6 +2,7 @@ rule slow5tools_f2s:
     input:
         raw_fast5_dir = "data/tmp.{sample}.nanoporeDRS",
         tag = "data/tmp.{sample}.nanoporeDRS.tag",
+        check_tag="data/tmp.{sample}.nanoporeDRS.check.tag"
     output:
         raw_slow5_dir = temp("data/tmp.{sample}.slow5"),
         tag=temp("data/tmp.{sample}.slow5.tag"),
