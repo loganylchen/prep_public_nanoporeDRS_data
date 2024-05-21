@@ -2,6 +2,8 @@ import os
 from snakemake.shell import shell
 
 
+log = snakemake.log_fmt_shell(stdout=False, stderr=True)
+
 def extract_tar_files(directory,compressed_files=[]):
 
     for filename in os.listdir(directory):
@@ -22,8 +24,8 @@ for f in compressed_files:
     f_dir = os.path.dirname(f)
     if f.endswith('.tar.gz'):
 
-        shell("tar -zxvf "+f+" -C  " + f_dir)
+        shell("tar -zxvf {f} -C  {f_dir} {log}")
     else:
-        shell(f"tar -xvf "+f+" -C   "+f_dir)
+        shell("tar -xvf {f} -C   {f_dir} {log}")
 
-shell("touch {snakemake.output[0]}")
+shell("touch {snakemake.output[0]} ")
