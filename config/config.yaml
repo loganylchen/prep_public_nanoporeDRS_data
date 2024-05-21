@@ -1,0 +1,6 @@
+samples: config/samples.tsv
+
+
+threads:
+  fetch_data: 12
+  slow5tools: 12

@@ -1,0 +1,4 @@
+channels:
+  - conda-forge
+dependencies:
+  - lftp =4.9.2
