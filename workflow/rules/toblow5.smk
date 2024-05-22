@@ -14,7 +14,7 @@ rule slow5tools_f2s:
     benchmark:
         "logs/slow5tools_f2s/{sample}.benchmark"
     shell:
-        'slow5tools f2s -p {threads} -a -d {input.raw_fast5_dir}  {output.raw_slow5_dir} 2>{log} && '
+        'slow5tools f2s -p {threads} -a -d {output.raw_slow5_dir} {input.raw_fast5_dir}   2>{log} && '
         'touch {output.tag}'
 
 rule slow5tools_merge:
