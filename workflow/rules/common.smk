@@ -5,7 +5,7 @@ from snakemake.utils import validate
 from snakemake.logging import logger
 
 
-samples = pd.read_csv(config['samples'], sep="\t", dtype={"SampleName": str}).set_index("SampleName", drop=False).sort_index().T.to_dict()
+samples = pd.read_csv(config['samples'], sep="\t", dtype={"SampleName": str},comment='#').set_index("SampleName", drop=False).sort_index().T.to_dict()
 
 def get_data_url(wildcards):
     return samples[wildcards.sample]["url"]
