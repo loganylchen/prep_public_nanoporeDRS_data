@@ -1,7 +1,6 @@
 rule fetch_data:
     output:
-        compressed_data = temp("data/tmp.{sample}.nanoporeDRS.tar.gz") if get_data_url_type else "data/tmp.{sample}.nanoporeDRS.tar",
-        tag = temp("data/tmp.{sample}.nanoporeDRS.download.tag")
+        unpack(get_compressed_data)
     params:
         url = get_data_url
     threads: config["threads"]["fetch_data"]
@@ -16,13 +15,12 @@ rule fetch_data:
 
 rule extract_data:
     input:
-        compressed_data = "data/tmp.{sample}.nanoporeDRS.tar.gz" if get_data_url_type else "data/tmp.{sample}.nanoporeDRS.tar",
-        tag= "data/tmp.{sample}.nanoporeDRS.download.tag"
+        unpack(get_compressed_data_notemp),
     output:
         extracted_data = temp(directory("data/tmp.{sample}.nanoporeDRS")),
         tag = temp("data/tmp.{sample}.nanoporeDRS.tag")
     params:
-        uncompress = 'tar -xzvf ' if get_data_url_type else 'tar -xvf '
+        unpack(get_uncompress_command)
     log:
         "logs/extract_data/{sample}.log"
     benchmark:
