@@ -10,6 +10,14 @@ samples = pd.read_csv(config['samples'], sep="\t", dtype={"SampleName": str},com
 def get_data_url(wildcards):
     return samples[wildcards.sample]["url"]
 
+def get_data_url_type(wildcards):
+    if samples[wildcards.sample]["type"] == 'tar.gz':
+        return True
+    elif samples[wildcards.sample]["type"] == 'tar':
+        return False
+    else:
+        print(f"Unknown data type for sample {wildcards.sample}")
+        sys.exit(1)
 
 
 
