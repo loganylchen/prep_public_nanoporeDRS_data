@@ -2,7 +2,7 @@ rule fetch_data:
     output:
         unpack(get_compressed_data)
     params:
-        get_data_url('{sample}')
+        url = get_data_url
     threads: config["threads"]["fetch_data"]
     conda:
         "../envs/fetch_data.yaml"
@@ -11,7 +11,7 @@ rule fetch_data:
     benchmark:
         "benchmarks/fetch_data/{sample}.txt"
     shell:
-        'lftp -c "pget -n {threads} {params} -o {output.compressed_data}" >{log} && touch {output.tag}'
+        'lftp -c "pget -n {threads} {params.url} -o {output.compressed_data}" >{log} && touch {output.tag}'
 
 rule extract_data:
     input:

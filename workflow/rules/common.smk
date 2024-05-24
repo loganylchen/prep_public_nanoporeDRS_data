@@ -14,8 +14,8 @@ def get_data_url(wildcards):
 def get_compressed_data(wildcards):
     if samples[wildcards.sample]['type'] == 'tar.gz':
         return {
-            'compressed_data':temp("data/tmp.{sample}.nanoporeDRS.tar.gz"),
-            'tag': temp("data/tmp.{sample}.nanoporeDRS.download.tag")
+            'compressed_data':temp(f"data/tmp.{wildcards.sample}.nanoporeDRS.tar.gz"),
+            'tag': temp(f"data/tmp.{wildcards.sample}.nanoporeDRS.download.tag")
         }
     elif samples[wildcards.sample]['type'] == 'tar':
         return {
