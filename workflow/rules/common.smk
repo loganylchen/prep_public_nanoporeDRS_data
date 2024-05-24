@@ -19,8 +19,8 @@ def get_compressed_data(wildcards):
         }
     elif samples[wildcards.sample]['type'] == 'tar':
         return {
-            'compressed_data':temp("data/tmp.{sample}.nanoporeDRS.tar"),
-            'tag': temp("data/tmp.{sample}.nanoporeDRS.download.tag")
+            'compressed_data':temp(f"data/tmp.{wildcards.sample}.nanoporeDRS.tar"),
+            'tag': temp(f"data/tmp.{wildcards.sample}.nanoporeDRS.download.tag")
         }
     else:
         print(f"Unknown data type for sample {wildcards.sample}")
@@ -29,13 +29,13 @@ def get_compressed_data(wildcards):
 def get_compressed_data_notemp(wildcards):
     if samples[wildcards.sample]['type'] == 'tar.gz':
         return {
-            'compressed_data': "data/tmp.{sample}.nanoporeDRS.tar.gz",
-            'tag': "data/tmp.{sample}.nanoporeDRS.download.tag"
+            'compressed_data': f"data/tmp.{wildcards.sample}.nanoporeDRS.tar.gz",
+            'tag': f"data/tmp.{wildcards.sample}.nanoporeDRS.download.tag"
         }
     elif samples[wildcards.sample]['type'] == 'tar':
         return {
-            'compressed_data': "data/tmp.{sample}.nanoporeDRS.tar",
-            'tag': "data/tmp.{sample}.nanoporeDRS.download.tag"
+            'compressed_data': f"data/tmp.{wildcards.sample}.nanoporeDRS.tar",
+            'tag': f"data/tmp.{wildcards.sample}.nanoporeDRS.download.tag"
         }
     else:
         print(f"Unknown data type for sample {wildcards.sample}")
