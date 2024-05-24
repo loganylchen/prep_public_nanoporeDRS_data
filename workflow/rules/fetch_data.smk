@@ -2,7 +2,7 @@ rule fetch_data:
     output:
         unpack(get_compressed_data)
     params:
-        url = samples['sample']["url"]
+        url = get_data_url
     threads: config["threads"]["fetch_data"]
     conda:
         "../envs/fetch_data.yaml"
