@@ -11,6 +11,7 @@ def get_data_url(wildcards):
     return samples[wildcards.sample]["url"]
 
 def get_data_url_type(wildcards):
+    print(samples[wildcards.sample]["type"] + " " + wildcards.sample)
     if samples[wildcards.sample]["type"] == 'tar.gz':
         return True
     elif samples[wildcards.sample]["type"] == 'tar':
