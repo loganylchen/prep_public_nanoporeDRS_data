@@ -9,46 +9,13 @@ def get_data_url(wildcards):
     return samples[wildcards.sample]["url"]
 
 
-def get_compressed_data(wildcards):
-    if samples[wildcards.sample]['type'] == 'tar.gz':
-        return {
-            'compressed_data':temp(f"data/tmp.{wildcards.sample}.nanoporeDRS.tar.gz"),
-            'tag': temp(f"data/tmp.{wildcards.sample}.nanoporeDRS.download.tag")
-        }
-    elif samples[wildcards.sample]['type'] == 'tar':
-        return {
-            'compressed_data':temp(f"data/tmp.{wildcards.sample}.nanoporeDRS.tar"),
-            'tag': temp(f"data/tmp.{wildcards.sample}.nanoporeDRS.download.tag")
-        }
-    else:
-        print(f"Unknown data type for sample {wildcards.sample}")
-        sys.exit(1)
 
-def get_compressed_data_notemp(wildcards):
-    if samples[wildcards.sample]['type'] == 'tar.gz':
-        return {
-            'compressed_data': f"data/tmp.{wildcards.sample}.nanoporeDRS.tar.gz",
-            'tag': f"data/tmp.{wildcards.sample}.nanoporeDRS.download.tag"
-        }
-    elif samples[wildcards.sample]['type'] == 'tar':
-        return {
-            'compressed_data': f"data/tmp.{wildcards.sample}.nanoporeDRS.tar",
-            'tag': f"data/tmp.{wildcards.sample}.nanoporeDRS.download.tag"
-        }
-    else:
-        print(f"Unknown data type for sample {wildcards.sample}")
-        sys.exit(1)
 
 def get_uncompress_command(wildcards):
     if samples[wildcards.sample]['type'] == 'tar.gz':
-        return {
-            'uncompress': "tar -zxvf ",
-
-        }
+        return "tar -zxvf "
     elif samples[wildcards.sample]['type'] == 'tar':
-        return {
-            'uncompress': "tar -xvf ",
-        }
+        return "tar -xvf "
     else:
         print(f"Unknown data type for sample {wildcards.sample}")
         sys.exit(1)
