@@ -6,12 +6,8 @@ rule fetch_data:
     threads: config["threads"]["fetch_data"]
     conda:
         "../envs/fetch_data.yaml"
-    log:
-        "logs/fetch_data/{sample}.log"
-    benchmark:
-        "benchmarks/fetch_data/{sample}.txt"
     shell:
-        'lftp -c "pget -n {threads} {params.url} -o {output.compressed_data}" >{log} && touch {output.tag}'
+        'lftp -c "pget -n {threads} {params.url} -o {output.compressed_data}"  && touch {output.tag}'
 
 rule extract_data:
     input:
