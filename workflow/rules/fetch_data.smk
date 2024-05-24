@@ -29,7 +29,7 @@ rule extract_data:
         "benchmarks/extract_data/{sample}.txt"
     shell:
         "mkdir -p {output.extracted_data} && "
-        "{params.uncompress} {input.compressed_data} -C {output.extracted_data} 2>{log} && touch {output.tag}"
+        "{params.command} {input.compressed_data} -C {output.extracted_data} 2>{log} && touch {output.tag}"
 
 rule check_data:
     input:
