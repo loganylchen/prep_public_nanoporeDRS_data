@@ -2,7 +2,7 @@ import os
 from snakemake.shell import shell
 
 
-log = snakemake.log_fmt_shell(stdout=False, stderr=True)
+log = snakemake.log_fmt_shell(stdout=True, stderr=True)
 
 def extract_tar_files(directory,compressed_files=[]):
 
