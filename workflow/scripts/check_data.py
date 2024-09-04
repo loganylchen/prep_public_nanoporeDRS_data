@@ -23,7 +23,6 @@ compressed_files = extract_tar_files(snakemake.input[0],compressed_files)
 for f in compressed_files:
     f_dir = os.path.dirname(f)
     if f.endswith('.tar.gz'):
-
         shell("tar -zxvf {f} -C  {f_dir} {log}")
     else:
         shell("tar -xvf {f} -C   {f_dir} {log}")
