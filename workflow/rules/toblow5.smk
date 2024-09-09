@@ -7,8 +7,8 @@ rule slow5tools_f2s:
         raw_slow5_dir = temp(directory("data/tmp.{sample}.slow5")),
         tag=temp("data/tmp.{sample}.slow5.tag"),
     threads: config["threads"]["slow5tools"]
-    conda:
-        "../envs/slow5tools.yaml"
+    container:
+        "btrspg/slow5tools:main"
     log:
         log="logs/slow5tools_f2s/{sample}.log",
         err="logs/slow5tools_f2s/{sample}.err"
@@ -25,8 +25,8 @@ rule slow5tools_merge:
     output:
         blow5="data/{sample}/blow5/nanopore.blow5"
     threads: config["threads"]["slow5tools"]
-    conda:
-        "../envs/slow5tools.yaml"
+    container:
+        "btrspg/slow5tools:main"
     log:
         log="logs/slow5tools_merge/{sample}.log",
         err="logs/slow5tools_merge/{sample}.err"
