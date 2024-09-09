@@ -8,7 +8,7 @@ rule slow5tools_f2s:
         tag=temp("data/tmp.{sample}.slow5.tag"),
     threads: config["threads"]["slow5tools"]
     container:
-        "btrspg/slow5tools:main"
+        "btrspg/slow5tools:latest"
     log:
         log="logs/slow5tools_f2s/{sample}.log",
         err="logs/slow5tools_f2s/{sample}.err"
@@ -26,7 +26,7 @@ rule slow5tools_merge:
         blow5="data/{sample}/blow5/nanopore.blow5"
     threads: config["threads"]["slow5tools"]
     container:
-        "btrspg/slow5tools:main"
+        "btrspg/slow5tools:latest"
     log:
         log="logs/slow5tools_merge/{sample}.log",
         err="logs/slow5tools_merge/{sample}.err"
