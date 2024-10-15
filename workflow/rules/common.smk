@@ -11,7 +11,11 @@ samples = (
 
 
 def get_data_url(wildcards):
-    return samples[wildcards.sample]["url"]
+    url = samples[wildcards.sample]["url"]
+    if url.startswith("https://") | url.startswith("http://"):
+        return url
+    else:
+        return f"https://{url}"
 
 
 def get_uncompress_command(wildcards):
