@@ -20,9 +20,9 @@ def get_data_url(wildcards):
 
 def get_uncompress_command(wildcards):
     if samples[wildcards.sample]["type"] == "tar.gz":
-        return "tar -zxvf --no-same-permissions "
+        return "tar --no-same-permissions  -zxvf "
     elif samples[wildcards.sample]["type"] == "tar":
-        return "tar -xvf --no-same-permissions "
+        return "tar --no-same-permissions  -xvf "
     else:
         print(f"Unknown data type for sample {wildcards.sample}")
         sys.exit(1)
