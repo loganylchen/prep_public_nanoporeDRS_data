@@ -18,8 +18,8 @@ def get_data_url(wildcards):
         return f"https://{url}"
 
 
-def get_blow5(wildcards):
-    sample = wildcards.sample
+def get_blow5(sample):
+
     return (f"data/{samples[sample]['project']}/{sample}/blow5/nanopore.blow5",)
 
 
