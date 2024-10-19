@@ -32,6 +32,6 @@ rule slow5tools_merge:
         log="logs/slow5tools_merge/{sample}_{project}.log",
         err="logs/slow5tools_merge/{sample}_{project}.err",
     benchmark:
-        "benchmarks/slow5tools_merge/{sample}.benchmark"
+        "benchmarks/slow5tools_merge/{sample}_{project}.benchmark"
     shell:
         "slow5tools merge -t {threads} -o {output.blow5} {input.raw_slow5_dir} 1>{log.log} 2>{log.err}"
