@@ -18,11 +18,6 @@ def get_data_url(wildcards):
         return f"https://{url}"
 
 
-def get_blow5(sample):
-
-    return (f"data/{samples[sample]['project']}/{sample}/blow5/nanopore.blow5",)
-
-
 def get_uncompress_command(wildcards):
     if samples[wildcards.sample]["type"] == "tar.gz":
         return "tar --no-same-permissions  -zxvf "

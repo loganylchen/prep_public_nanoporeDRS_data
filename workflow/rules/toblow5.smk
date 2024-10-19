@@ -24,13 +24,13 @@ rule slow5tools_merge:
         raw_slow5_dir="data/tmp.{sample}.slow5",
         tag="data/tmp.{sample}.slow5.tag",
     output:
-        blow5=get_blow5("{sample}"),
+        blow5=f"data/{project}/{sample}/blow5/nanopore.blow5",
     threads: config["threads"]["slow5tools"]
     container:
         "docker://btrspg/slow5tools:latest"
     log:
-        log="logs/slow5tools_merge/{sample}.log",
-        err="logs/slow5tools_merge/{sample}.err",
+        log="logs/slow5tools_merge/{sample}_{project}.log",
+        err="logs/slow5tools_merge/{sample}_{project}.err",
     benchmark:
         "benchmarks/slow5tools_merge/{sample}.benchmark"
     shell:

@@ -8,6 +8,7 @@ min_version("6.4.1")
 
 wildcard_constraints:
     sample="[0-9a-zA-Z]+",
+    project="[0-9a-zA-Z_]+",
 
 
 ##### setup report #####
