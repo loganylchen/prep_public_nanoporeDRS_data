@@ -18,6 +18,11 @@ def get_data_url(wildcards):
         return f"https://{url}"
 
 
+def get_blow5(wildcards):
+    sample = wildcards.sample
+    return (f"data/{samples[sample]['project']}/{sample}/blow5/nanopore.blow5",)
+
+
 def get_uncompress_command(wildcards):
     if samples[wildcards.sample]["type"] == "tar.gz":
         return "tar --no-same-permissions  -zxvf "
@@ -31,7 +36,7 @@ def get_uncompress_command(wildcards):
 def get_output_list_for_one_sample(sample):
     return [
         # f"data/{sample}/fastq/pass.fq.gz",
-        f"data/{sample}/blow5/nanopore.blow5",
+        f"data/{samples[sample]['project']}/{sample}/blow5/nanopore.blow5",
     ]
 
 
