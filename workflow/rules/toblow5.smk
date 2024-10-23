@@ -24,7 +24,7 @@ rule slow5tools_merge:
         raw_slow5_dir="data/tmp.{sample}.slow5",
         tag="data/tmp.{sample}.slow5.tag",
     output:
-        blow5="data/{project}/{sample}/blow5/nanopore.blow5",
+        blow5="{project}/data/{sample}/blow5/nanopore.blow5",
     threads: config["threads"]["slow5tools"]
     container:
         "docker://btrspg/slow5tools:latest"
