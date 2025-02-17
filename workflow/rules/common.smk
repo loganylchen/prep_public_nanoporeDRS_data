@@ -29,10 +29,10 @@ def get_uncompress_command(wildcards):
 
 
 def get_output_list_for_one_sample(sample):
+    project = samples[sample]['project']
     return [
-        # f"data/{sample}/fastq/pass.fq.gz",
-        f"{samples[sample]['project']}/data/{sample}/blow5/nanopore.blow5",
-        f"{samples[sample]['project']}/data/{sample}/fastq/pass.fq.gz",
+        f"{project}/data/{sample}/blow5/nanopore.blow5",
+        f"{project}/data/{sample}/fastq/pass.fq.gz",
     ]
 
 

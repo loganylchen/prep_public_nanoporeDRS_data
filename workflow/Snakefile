@@ -26,11 +26,11 @@ container: "docker://condaforge/mambaforge:22.11.1-4"
 include: "rules/common.smk"
 include: "rules/fetch_data.smk"
 include: "rules/toblow5.smk"
-incluee: "rules/basecalling.smk"
+include: "rules/basecalling.smk"
 
 ##### target rules #####
 
 
 rule all:
     input:
-        get_final_output(),
+        get_final_output()

@@ -21,7 +21,7 @@ rule slow5tools_f2s:
 
 rule slow5tools_merge:
     input:
-        raw_slow5_dir="data/tmp.{sample}.slow5",
+        raw_slow5_dir="data/tmp.{sample}.slow5" ,
         tag="data/tmp.{sample}.slow5.tag",
     output:
         blow5="{project}/data/{sample}/blow5/nanopore.blow5",
@@ -32,6 +32,6 @@ rule slow5tools_merge:
         log="logs/slow5tools_merge/{sample}_{project}.log",
         err="logs/slow5tools_merge/{sample}_{project}.err",
     benchmark:
-        "benchmarks/slow5tools_merge/{sample}_{project}.benchmark"
+        "benchmarks/slow5tools_merge/{sample}_{project}.benchmark.txt"
     shell:
         "slow5tools merge -t {threads} -o {output.blow5} {input.raw_slow5_dir} 1>{log.log} 2>{log.err}"
