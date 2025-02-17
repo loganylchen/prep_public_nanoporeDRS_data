@@ -1,11 +1,10 @@
-samples: config/samples.tsv
-
+samples: config/PRJNA777450.tsv
 
 threads:
   fetch_data: 12
   slow5tools: 12
   guppy: 12
 
-guppy: 
+guppy:
   path: /home/logan/guppy/bin/guppy_basecaller
   param: --device 'cuda:all' --flowcell FLO-MIN106 --kit SQK-RNA002  --gpu_runners_per_device 25 --compress_fastq --recursive --chunks_per_runner 1024
