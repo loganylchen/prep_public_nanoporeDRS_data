@@ -26,12 +26,12 @@ rule merging:
         raw_fastq_dir="data/tmp.{sample}.fastq",
         tag="data/tmp.{sample}.fastq.tag"
     output:
-        fastq="data/{sample}/fastq/pass.fq.gz"
+        fastq="{project}/data/{sample}/fastq/pass.fq.gz"
     threads: 1
     log:
-        "logs/merging/{sample}.log",
+        "logs/merging/{sample}_{project}.log",
     benchmark:
-        "benchmarks/basecalling/{sample}.txt"
+        "benchmarks/basecalling/{sample}_{project}.txt"
     shell:
         'zcat {input.raw_fastq_dir}/pass/*fastq.gz | gzip -c > {output.fastq}'
 
