@@ -31,7 +31,7 @@ rule merging:
     log:
         "logs/merging/{sample}_{project}.log",
     benchmark:
-        "benchmarks/basecalling/{sample}_{project}.txt"
+        "benchmarks/merging/{sample}_{project}.txt"
     shell:
         'zcat {input.raw_fastq_dir}/pass/*fastq.gz | gzip -c > {output.fastq}'
 
