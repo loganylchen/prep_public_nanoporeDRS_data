@@ -26,7 +26,7 @@ container: "docker://condaforge/mambaforge:22.11.1-4"
 include: "rules/common.smk"
 include: "rules/fetch_data.smk"
 include: "rules/toblow5.smk"
-
+incluee: "rules/basecalling.smk"
 
 ##### target rules #####
 

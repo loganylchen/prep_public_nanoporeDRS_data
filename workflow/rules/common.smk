@@ -32,6 +32,7 @@ def get_output_list_for_one_sample(sample):
     return [
         # f"data/{sample}/fastq/pass.fq.gz",
         f"{samples[sample]['project']}/data/{sample}/blow5/nanopore.blow5",
+        f"{samples[sample]['project']}/data/{sample}/fastq/pass.fq.gz",
     ]
 
 
