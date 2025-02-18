@@ -10,6 +10,7 @@ rule basecalling:
         guppy=config['guppy']['path'],
         ext_param=config['guppy']['param']
     threads: config['threads']['guppy']
+    priority: 9
     log:
         log="logs/basecalling/{sample}.log",
         err="logs/basecalling/{sample}.err",
@@ -28,6 +29,7 @@ rule fastq_merge:
     output:
         fastq="{project}/data/{sample}/fastq/pass.fq.gz"
     threads: 1
+    priority: 10
     log:
         log="logs/fastq_merge/{sample}_{project}.log",
     benchmark:

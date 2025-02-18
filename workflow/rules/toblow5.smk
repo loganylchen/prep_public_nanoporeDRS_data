@@ -9,6 +9,7 @@ rule slow5tools_f2s:
     threads: config["threads"]["slow5tools"]
     container:
         "docker://btrspg/slow5tools:latest"
+    priority: 9
     log:
         log="logs/slow5tools_f2s/{sample}.log",
         err="logs/slow5tools_f2s/{sample}.err",
@@ -28,6 +29,7 @@ rule slow5tools_merge:
     threads: config["threads"]["slow5tools"]
     container:
         "docker://btrspg/slow5tools:latest"
+    priority: 10
     log:
         log="logs/slow5tools_merge/{sample}_{project}.log",
         err="logs/slow5tools_merge/{sample}_{project}.err",

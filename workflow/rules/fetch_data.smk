@@ -10,6 +10,7 @@ rule fetch_data:
     log:
         log="logs/fetch_data/{sample}.log",
         err="logs/fetch_data/{sample}.err",
+    priority: 1
     benchmark:
         "benchmarks/fetch_data/{sample}.txt"
     shell:
@@ -25,6 +26,7 @@ rule extract_data:
         tag=temp("data/tmp.{sample}.nanoporeDRS.tag"),
     params:
         command=get_uncompress_command,
+    priority: 2
     log:
         log="logs/extract_data/{sample}.log",
         err="logs/extract_data/{sample}.err",
@@ -43,6 +45,7 @@ rule check_data:
         tag="data/tmp.{sample}.nanoporeDRS.tag",
     output:
         tag=temp("data/tmp.{sample}.nanoporeDRS.check.tag"),
+    priority: 3
     log:
         "logs/check_data/{sample}.log",
     benchmark:
