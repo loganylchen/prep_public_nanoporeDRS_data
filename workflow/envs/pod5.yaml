@@ -2,5 +2,6 @@ channels:
   - conda-forge
   - bioconda
 dependencies:
+  - python= 3.9
   - pip:
-      - pod5
+      - pod5=0.3.23
