@@ -5,6 +5,8 @@ threads:
   slow5tools: 12
   guppy: 12
   samtools: 12
+  pod5: 12
+  dorado: 12
 
 guppy:
   path: /home/logan/guppy/bin/guppy_basecaller
@@ -12,7 +14,7 @@ guppy:
 
 dorado:
   path: /home/logan/dorado-0.9.1-linux-x64/bin/dorado
-  param: --device 'cuda:all' --emit-moves --estimate-poly-a
+  param: --device 'cuda:all' --emit-moves --estimate-poly-a -r
   mm2_opts: -x map-ont
-  model: hac@v3
+  model_name: hac@v3
   reference:

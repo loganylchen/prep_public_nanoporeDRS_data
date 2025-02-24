@@ -40,7 +40,7 @@ rule fastq_merge:
 
 rule dorado_basecalling:
     input:
-        pod5="{project}/data/{sample}/pod5/nanopore.pod5",
+        pod5="data/tmp.{sample}.pod5",
         model=f"tmp/models/{config['dorado']['model_name']}"
     output:
         raw_bam_dir=temp(directory("data/tmp.{sample}.bam")),
