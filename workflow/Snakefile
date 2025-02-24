@@ -26,6 +26,7 @@ configfile: "config/config.yaml"
 include: "rules/common.smk"
 include: "rules/fetch_data.smk"
 include: "rules/toblow5.smk"
+include: "rules/topod5.smk"
 include: "rules/basecalling.smk"
 
 ##### target rules #####
