@@ -61,7 +61,7 @@ rule dorado_basecalling:
     shell:
         '{params.dorado} basecaller '
         '{params.ext_param} '
-        '-o {input.raw_bam_dir} '
+        '-o {output.raw_bam_dir} '
         '--reference {params.reference} '
         '--mm2-opts "{params.mm2_opts}" '
         '{params.model} {input.pod5} '
