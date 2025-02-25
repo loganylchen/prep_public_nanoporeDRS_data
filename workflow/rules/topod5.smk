@@ -4,17 +4,16 @@ rule pod5_f2p:
         tag="data/tmp.{sample}.nanoporeDRS.tag",
         check_tag="data/tmp.{sample}.nanoporeDRS.check.tag",
     output:
-        pod5="{project}/data/{sample}/pod5/nanopore.pod5",
-        
+        pod5="{project}/data/{sample}/pod5/nanopore.pod5",    
     threads: config["threads"]["pod5"]
     conda:
         "../envs/pod5.yaml"
     priority: 9
     log:
-        log="logs/pod5_f2p/{sample}.log",
-        err="logs/pod5_f2p/{sample}.err",
+        log="logs/pod5_f2p/{project}_{sample}.log",
+        err="logs/pod5_f2p/{project}_{sample}.err",
     benchmark:
-        "benchmarks/pod5_f2p/{sample}.benchmark"
+        "benchmarks/pod5_f2p/{project}_{sample}.benchmark"
     shell:
         "pod5 convert fast5 -t {threads} -f -r -o {output.pod5} {input.raw_fast5_dir}  1>{log.log} 2>{log.err} "
 
