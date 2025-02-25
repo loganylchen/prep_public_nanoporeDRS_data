@@ -41,10 +41,10 @@ rule fastq_merge:
 
 rule dorado_basecalling:
     input:
-        pod5="data/tmp.{sample}.pod5"
+        pod5="{project}/data/{sample}/pod5/nanopore.pod5", 
     output:
-        raw_bam_dir=temp(directory("data/tmp.{sample}.bam")),
-        tag=temp("data/tmp.{sample}.bam.tag"),
+        raw_bam_dir=temp(directory("data/tmp.{project}.{sample}.bam")),
+        tag=temp("data/tmp.{project}.{sample}.bam.tag"),
     params:
         dorado=config['dorado']['path'],
         model=config['dorado']['model_name'],
@@ -54,10 +54,10 @@ rule dorado_basecalling:
     threads: config['threads']['dorado']
     priority: 9
     log:
-        log="logs/dorado_basecalling/{sample}.log",
-        err="logs/dorado_basecalling/{sample}.err",
+        log="logs/dorado_basecalling/{project}_{sample}.log",
+        err="logs/dorado_basecalling/{project}_{sample}.err",
     benchmark:
-        "benchmarks/dorado_basecalling/{sample}.txt"
+        "benchmarks/dorado_basecalling/{project}_{sample}.txt"
     shell:
         '{params.dorado} basecaller '
         '{params.ext_param} '
@@ -69,8 +69,8 @@ rule dorado_basecalling:
 
 rule bam_merge:
     input:
-        raw_bam_dir="data/tmp.{sample}.bam" ,
-        tag="data/tmp.{sample}.bam.tag"
+        raw_bam_dir="data/tmp.{project}.{sample}.bam" ,
+        tag="data/tmp.{project}.{sample}.bam.tag"
     output:
         bam="{project}/data/{sample}/bam/pass.bam"
     threads: config['threads']['samtools']
