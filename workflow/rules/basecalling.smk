@@ -38,3 +38,5 @@ rule fastq_merge:
         'zcat {input.raw_fastq_dir}/pass/*fastq.gz | gzip -c > {output.fastq}'
 
 
+
+
