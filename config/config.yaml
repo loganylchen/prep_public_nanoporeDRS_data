@@ -4,13 +4,17 @@ threads:
   fetch_data: 12
   slow5tools: 12
   guppy: 12
+  samtools: 12
+  pod5: 12
+  dorado: 12
 
 guppy:
   path: /home/logan/guppy/bin/guppy_basecaller
   param: --device 'cuda:all' --flowcell FLO-MIN106 --kit SQK-RNA002  --gpu_runners_per_device 25 --compress_fastq --recursive --chunks_per_runner 1024
 
 dorado:
-  path: 
-
-
-reference: 
+  path: /home/logan/dorado-0.9.1-linux-x64/bin/dorado
+  param: --device 'cuda:all' --emit-moves --estimate-poly-a -r
+  mm2_opts: -x map-ont
+  model_name: hac@v3
+  reference:

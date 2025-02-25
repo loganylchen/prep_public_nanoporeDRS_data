@@ -20,12 +20,13 @@ configfile: "config/config.yaml"
 
 # this container defines the underlying OS for each job when using the workflow
 # with --use-conda --use-singularity
-container: "docker://condaforge/mambaforge:22.11.1-4"
+# container: "docker://condaforge/mambaforge:22.11.1-4"
 
 
 include: "rules/common.smk"
 include: "rules/fetch_data.smk"
 include: "rules/toblow5.smk"
+include: "rules/topod5.smk"
 include: "rules/basecalling.smk"
 
 ##### target rules #####
